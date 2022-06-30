@@ -29,7 +29,7 @@ const User = () => {
         setErrorMessage("kindly fill all the text box");
         setOpen(true);
       }
-    axios.get('http://127.0.0.1:8000/user_login/'+deviceId)
+    axios.get('http://watrack-restapi.herokuapp.com/user_login/'+deviceId)
     .then(response =>{
         console.log(response);
         if(response.data.password === password){

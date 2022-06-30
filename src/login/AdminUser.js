@@ -29,7 +29,7 @@ const AdminUser = () => {
         setErrorMessage("kindly fill all the text box");
         setOpen(true);
       }
-    axios.get('http://127.0.0.1:8000/admin_login/'+mailId)
+    axios.get('http://watrack-restapi.herokuapp.com/admin_login/'+mailId)
     .then(response =>{
         if(response.data.password === password){
             response.data.password = "****";

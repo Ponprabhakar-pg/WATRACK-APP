@@ -29,7 +29,7 @@ const SuperAdminUser = () => {
         setErrorMessage("kindly fill all the text box");
         setOpen(true);
       }
-    axios.get('http://127.0.0.1:8000/super_admin_login/'+mailId)
+    axios.get('http://watrack-restapi.herokuapp.com/super_admin_login/'+mailId)
     .then(response =>{
         if(response.data.password === password){
             response.data.password = "****";

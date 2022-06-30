@@ -74,7 +74,7 @@ const CreateUser = () => {
         setErrorMessage("kindly fill all the text box");
         setOpen(true);
       }
-    axios.post('http://127.0.0.1:8000/register_user', {
+    axios.post('http://watrack-restapi.herokuapp.com/register_user', {
         "device_id": deviceId,
         "password": password,
         "name": name,

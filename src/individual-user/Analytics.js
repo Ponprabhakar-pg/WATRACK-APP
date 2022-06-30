@@ -28,17 +28,17 @@ export default function Analytics({hrefCallback}) {
     const getOverallWaterData = () => {
         let date = new Date();
         let year = date.getFullYear(), month = date.getMonth()+1, day = date.getDate();
-        axios.get(`http://localhost:8000/get_water_usage_filter/${userData['device_id']}/${year}:${month}:${day}`).then((response) => {
+        axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter/${userData['device_id']}/${year}:${month}:${day}`).then((response) => {
             console.log(response.data[0]['water_used'])
             setTodayWaterData(response.data[0]['water_used']);
         });
 
-        axios.get(`http://localhost:8000/get_water_usage_filter/${userData['device_id']}/${year}:${month}`).then((response) => {
+        axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter/${userData['device_id']}/${year}:${month}`).then((response) => {
             console.log(response.data[0]['water_used'])
             setMonthWaterData(response.data[0]['water_used']);
         });
 
-        axios.get(`http://localhost:8000/get_water_usage_filter/${userData['device_id']}/${year}`).then((response) => {
+        axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter/${userData['device_id']}/${year}`).then((response) => {
             console.log(response.data[0]['water_used'])
             setYearWaterData(response.data[0]['water_used']);
         });

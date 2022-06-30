@@ -42,10 +42,10 @@ useEffect(() => {
 }, [overallWaterDataTillNow, users, userCharts])
   
   const getOverallWaterData = (device) => {
-        axios.get(`http://localhost:8000/get_water_usage_filter/${device}/${year}:${month}`).then((response) => {
+        axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter/${device}/${year}:${month}`).then((response) => {
             setOverallWaterDataTillNow(prevState => [...prevState, response.data[0].water_used]);
         });
-        axios.get(`http://localhost:8000/user_login/${device}`).then((response) => {
+        axios.get(`http://watrack-restapi.herokuapp.com/user_login/${device}`).then((response) => {
             setUsers(prevState => [...prevState, {name: response.data.name, device_id: response.data.device_id}]);
         }); 
   }

@@ -38,7 +38,7 @@ useEffect(() => {
 }, [waterDataTillNow])
   
   const getOverallWaterData = () => {
-    axios.get(`http://localhost:8000/get_water_usage_filter/${userData['device_id']}/${year}:${month}:${day}`).then((response) => {
+    axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter/${userData['device_id']}/${year}:${month}:${day}`).then((response) => {
       setWaterDataTillNow(response.data[0].water_used);
     });
   }

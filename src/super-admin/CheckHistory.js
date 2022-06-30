@@ -129,7 +129,7 @@ export default function CheckHistory({device_id, tenent_name}) {
                 filter_query = `${year}:${month}:${day}`;
               }
             }
-            axios.get(`http://localhost:8000/get_water_usage_filter_raw/${device_id}/${filter_query}`).then((response) => {
+            axios.get(`http://watrack-restapi.herokuapp.com/get_water_usage_filter_raw/${device_id}/${filter_query}`).then((response) => {
                 let chartdata = response.data;
                 if(response.data.length > 0)
                 {

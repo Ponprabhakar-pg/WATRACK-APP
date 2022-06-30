@@ -29,7 +29,7 @@ export default function Analytics({hrefCallback}) {
   useEffect(()=>{
     setGridItem([]);
     for(var ele of userData['controlled_devices']){
-    axios.get(`http://localhost:8000/user_login/${ele}`).then((response) => {
+    axios.get(`http://watrack-restapi.herokuapp.com/user_login/${ele}`).then((response) => {
       let element = response.data;
       setGridItem((prevState)=> [...prevState,<Grid item xs={6}  key={element['device_id']} align="center"><Card sx={{ maxWidth: 345 }} onClick={(_e)=>hrefCallback(<CheckHistory tenent_name={element.name} device_id={element["device_id"]}/>)}>
       <CardActionArea>
